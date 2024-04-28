@@ -1,0 +1,15 @@
+---
+- name: Install and Configure Apache HTTP Server
+  hosts: 102.37.157.138
+  become: true
+  tasks:
+    - name: Install Apache HTTP Server
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start Apache service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
