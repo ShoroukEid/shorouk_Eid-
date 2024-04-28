@@ -1,15 +1,39 @@
 ---
-- name: Install and Configure Apache HTTP Server
-  hosts: 102.37.157.138
-  become: true
+- name: Web Server Setup
+  hosts: web_servers
+  become: yes
   tasks:
+    - name: Update yum package cache
+      yum:
+        update_cache: yes
     - name: Install Apache HTTP Server
       yum:
         name: httpd
         state: present
 
-    - name: Start Apache service
+    - name: Enable Apache service
+      systemd:
+        name: httpd
+        enabled: yes
+        state: started
+
+    - name: Allow HTTP traffic through UFW
+      ufw:
+        rule: allow
+        #name: 'Apache Full'
+        port: '80,443'
+        proto: tcp
+
+    #- name: Copy custom index.html file
+     #copy:
+        #src: /path/to/files/index.html
+        #dest: /var/www/html/index.html
+      #notify:
+        #- restart httpd
+
+  handlers:
+    - name: restart httpd
       service:
         name: httpd
-        state: started
-        enabled: yes
+        state: restarted
+~
