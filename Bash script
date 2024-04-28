@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Create users
+sudo useradd -m -s /bin/bash DevTeam
+sudo useradd -m -s /bin/bash OpsTeam
+
+# Create group
+sudo groupadd webAdmins
+
+# Add users to group
+sudo usermod -aG webAdmins DevTeam
+sudo usermod -aG webAdmins OpsTeam
