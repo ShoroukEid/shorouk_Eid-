@@ -1,0 +1,444 @@
+
+[ansible@ansible ~]$ ansible-playbook -i hosts.ini Webserversetup.yaml  -vvv
+ansible-playbook 2.9.27
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/ansible/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /bin/ansible-playbook
+  python version = 2.7.5 (default, Nov 14 2023, 16:14:06) [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+Using /etc/ansible/ansible.cfg as config file
+host_list declined parsing /home/ansible/hosts.ini as it did not pass its verify_file() method
+script declined parsing /home/ansible/hosts.ini as it did not pass its verify_file() method
+auto declined parsing /home/ansible/hosts.ini as it did not pass its verify_file() method
+yaml declined parsing /home/ansible/hosts.ini as it did not pass its verify_file() method
+Parsed /home/ansible/hosts.ini inventory source with ini plugin
+Skipping callback 'actionable', as we already have a stdout callback.
+Skipping callback 'counter_enabled', as we already have a stdout callback.
+Skipping callback 'debug', as we already have a stdout callback.
+Skipping callback 'dense', as we already have a stdout callback.
+Skipping callback 'dense', as we already have a stdout callback.
+Skipping callback 'full_skip', as we already have a stdout callback.
+Skipping callback 'json', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'null', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+Skipping callback 'selective', as we already have a stdout callback.
+Skipping callback 'skippy', as we already have a stdout callback.
+Skipping callback 'stderr', as we already have a stdout callback.
+Skipping callback 'unixy', as we already have a stdout callback.
+Skipping callback 'yaml', as we already have a stdout callback.
+
+PLAYBOOK: Webserversetup.yaml ******************************************************************************************************************************************************************************
+1 plays in Webserversetup.yaml
+
+PLAY [Web Server Setup] ************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************************************************
+task path: /home/ansible/Webserversetup.yaml:2
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'echo ~ansible && sleep 0'"'"''
+<102.37.157.138> (0, '/home/ansible\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp `"&& mkdir "` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140 `" && echo ansible-tmp-1714344033.12-31723-105342271232140="` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140 `" ) && sleep 0'"'"''
+<102.37.157.138> (0, 'ansible-tmp-1714344033.12-31723-105342271232140=/home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140\n', '')
+<102.37.157.138> Attempting python interpreter discovery
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<102.37.157.138> (0, 'PLATFORM\nLinux\nFOUND\n/usr/bin/python\n/usr/bin/python2.7\n/usr/libexec/platform-python\n/usr/bin/python\nENDFOUND\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'/usr/bin/python && sleep 0'"'"''
+<102.37.157.138> (0, '{"osrelease_content": "NAME=\\"CentOS Linux\\"\\nVERSION=\\"7 (Core)\\"\\nID=\\"centos\\"\\nID_LIKE=\\"rhel fedora\\"\\nVERSION_ID=\\"7\\"\\nPRETTY_NAME=\\"CentOS Linux 7 (Core)\\"\\nANSI_COLOR=\\"0;31\\"\\nCPE_NAME=\\"cpe:/o:centos:centos:7\\"\\nHOME_URL=\\"https://www.centos.org/\\"\\nBUG_REPORT_URL=\\"https://bugs.centos.org/\\"\\n\\nCENTOS_MANTISBT_PROJECT=\\"CentOS-7\\"\\nCENTOS_MANTISBT_PROJECT_VERSION=\\"7\\"\\nREDHAT_SUPPORT_PRODUCT=\\"centos\\"\\nREDHAT_SUPPORT_PRODUCT_VERSION=\\"7\\"\\n\\n", "platform_dist_result": ["centos", "7.9.2009", "Core"]}\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/system/setup.py
+<102.37.157.138> PUT /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmpZeOpgB TO /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140/AnsiballZ_setup.py
+<102.37.157.138> SSH: EXEC sshpass -d8 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d '[102.37.157.138]'
+<102.37.157.138> (0, 'sftp> put /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmpZeOpgB /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140/AnsiballZ_setup.py\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140/ /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140/AnsiballZ_setup.py && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d -tt 102.37.157.138 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-kqwwlztjyksnazvyolyhirjzbrvehquj ; /usr/bin/python /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<102.37.157.138> (0, '\r\n{"invocation": {"module_args": {"filter": "*", "gather_subset": ["all"], "fact_path": "/etc/ansible/facts.d", "gather_timeout": 10}}, "ansible_facts": {"ansible_fibre_channel_wwn": [], "module_setup": true, "ansible_distribution_version": "7.9", "ansible_distribution_file_variety": "RedHat", "ansible_env": {"USERNAME": "root", "LANG": "C", "TERM": "xterm", "SHELL": "/bin/bash", "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-kqwwlztjyksnazvyolyhirjzbrvehquj ; /usr/bin/python /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140/AnsiballZ_setup.py", "SHLVL": "1", "XDG_SESSION_ID": "170", "SUDO_UID": "1000", "SUDO_GID": "1000", "PWD": "/home/ansible", "LOGNAME": "root", "USER": "root", "MAIL": "/var/mail/ansible", "LC_NUMERIC": "C", "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", "SUDO_USER": "ansible", "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:", "HOME": "/root", "LC_ALL": "C", "_": "/usr/bin/python"}, "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_default_ipv4": {"macaddress": "60:45:bd:41:55:cd", "network": "10.0.0.0", "mtu": 1500, "broadcast": "10.0.0.255", "alias": "eth0", "netmask": "255.255.255.0", "address": "10.0.0.4", "interface": "eth0", "type": "ether", "gateway": "10.0.0.1"}, "ansible_swapfree_mb": 0, "ansible_default_ipv6": {}, "ansible_cmdline": {"console": "ttyS0,115200n8", "earlyprintk": "ttyS0,115200", "net.ifnames": "0", "rootdelay": "300", "crashkernel": "auto", "BOOT_IMAGE": "/vmlinuz-3.10.0-1127.19.1.el7.x86_64", "scsi_mod.use_blk_mq": "y", "ro": true, "root": "UUID=eab0f70c-f812-448a-be76-425cc5248ffd"}, "ansible_machine_id": "8a9c59edbef944afbe6efbd0539cd195", "ansible_userspace_architecture": "x86_64", "ansible_product_uuid": "3042B75E-CD5C-41C1-BB25-551DB99A661F", "ansible_pkg_mgr": "yum", "ansible_distribution": "CentOS", "ansible_iscsi_iqn": "", "ansible_all_ipv6_addresses": ["fe80::6245:bdff:fe41:55cd"], "ansible_uptime_seconds": 77694, "ansible_kernel": "3.10.0-1127.19.1.el7.x86_64", "ansible_system_capabilities_enforced": "True", "ansible_python": {"executable": "/usr/bin/python", "version": {"micro": 5, "major": 2, "releaselevel": "final", "serial": 0, "minor": 7}, "type": "CPython", "has_sslcontext": true, "version_info": [2, 7, 5, "final", 0]}, "ansible_is_chroot": false, "ansible_hostnqn": "", "ansible_user_shell": "/bin/bash", "ansible_product_serial": "0000-0003-4775-4348-0083-6284-81", "ansible_form_factor": "Desktop", "ansible_distribution_file_parsed": true, "ansible_fips": false, "ansible_user_id": "root", "ansible_selinux_python_present": true, "ansible_kernel_version": "#1 SMP Tue Aug 25 17:23:54 UTC 2020", "ansible_local": {}, "ansible_processor_vcpus": 4, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz", "1", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz", "2", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz", "3", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz"], "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFznGpHpEE7OMfLS3N1sA/qbjN+9/5Sdc/+T/yrZrz1MVj1SmtMPDPLIqOXLw52cZtGj6nUgqlEwr5zjuyQOi2I=", "ansible_user_gid": 0, "ansible_system_vendor": "Microsoft Corporation", "ansible_swaptotal_mb": 0, "ansible_distribution_major_version": "7", "ansible_real_group_id": 0, "ansible_lsb": {}, "ansible_machine": "x86_64", "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDDfjfyPRDAOCqCJBH2Q0amz05ZrLJF+i77chX3dzhmpZYTX4XaUd487gyj8ROcy+qSnrfdsADOAYcKETeiZzN2o/DTSCD5fpqB07GxY+9x08a5k1n3b+Qf7JMwQxg69zvHc1dEZmf8wwX3PXtfNJlhgjw9NUNGcGUzVZ2gOaNxGrd4F41kynEB0M8yO9yGnS+3pYNol2a9+sEc+yewSTlxxIJ0lx3ySkgq1AF0moMxjM+yGgduWH13L/aQ75Ildffij53+kOulTeP7iafuEsS448eXKfn7xJuI8ZztySXg5X7TrzkWHoKJLbFGIpfdowMkvpKzu5LKq5zJRvctWu51", "ansible_user_gecos": "root", "ansible_processor_threads_per_core": 2, "ansible_eth0": {"macaddress": "60:45:bd:41:55:cd", "features": {"tx_checksum_ipv4": "on", "generic_receive_offload": "on", "tx_checksum_ipv6": "on", "tx_scatter_gather_fraglist": "off [fixed]", "rx_all": "off [fixed]", "highdma": "on [fixed]", "rx_fcs": "off [fixed]", "tx_lockless": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_gso_robust": "off [fixed]", "tx_ipip_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off [fixed]", "rx_gro_hw": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "on", "tx_scatter_gather": "on [fixed]", "rx_checksumming": "on", "tx_tcp_segmentation": "on", "netns_local": "off [fixed]", "busy_poll": "off [fixed]", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "on [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_nocache_copy": "off", "tx_udp_tnl_csum_segmentation": "off [fixed]", "udp_fragmentation_offload": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_sit_segmentation": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "on [fixed]", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "off [fixed]"}, "type": "ether", "pciid": "6045bd41-55cd-6045-bd41-55cd6045bd41", "module": "hv_netvsc", "mtu": 1500, "device": "eth0", "promisc": false, "timestamping": ["tx_software", "rx_software", "software"], "ipv4": {"broadcast": "10.0.0.255", "netmask": "255.255.255.0", "network": "10.0.0.0", "address": "10.0.0.4"}, "ipv6": [{"scope": "link", "prefix": "64", "address": "fe80::6245:bdff:fe41:55cd"}], "active": true, "speed": 50000, "hw_timestamp_filters": []}, "ansible_eth1": {"macaddress": "60:45:bd:41:55:cd", "phc_index": 1, "features": {"tx_checksum_ipv4": "on", "generic_receive_offload": "on", "tx_checksum_ipv6": "on", "tx_scatter_gather_fraglist": "off [fixed]", "rx_all": "off [fixed]", "highdma": "on [fixed]", "rx_fcs": "off", "tx_lockless": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "rx_udp_tunnel_port_offload": "off", "tx_tcp6_segmentation": "on", "tx_gso_robust": "off [fixed]", "tx_ipip_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "off", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off", "rx_gro_hw": "off [fixed]", "rx_vlan_stag_filter": "on [fixed]", "large_receive_offload": "off [requested on]", "tx_scatter_gather": "on", "rx_checksumming": "on", "tx_tcp_segmentation": "on", "netns_local": "off [fixed]", "busy_poll": "off [fixed]", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "on", "ntuple_filters": "off", "tx_gre_csum_segmentation": "off", "tx_nocache_copy": "off", "tx_udp_tnl_csum_segmentation": "off [fixed]", "udp_fragmentation_offload": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_sit_segmentation": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off", "tx_checksum_ip_generic": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "rx_vlan_filter": "off", "tx_vlan_offload": "on", "receive_hashing": "off", "tx_gre_segmentation": "off"}, "type": "ether", "pciid": "e2fe:00:02.0", "module": "mlx5_core", "mtu": 1500, "device": "eth1", "promisc": false, "timestamping": ["tx_hardware", "rx_hardware", "raw_hardware"], "active": true, "speed": -1, "hw_timestamp_filters": ["none", "all"]}, "ansible_system": "Linux", "ansible_all_ipv4_addresses": ["10.0.0.4"], "ansible_python_version": "2.7.5", "ansible_product_version": "Hyper-V UEFI Release v4.1", "ansible_service_mgr": "systemd", "ansible_memory_mb": {"real": {"total": 7820, "used": 3406, "free": 4414}, "swap": {"cached": 0, "total": 0, "free": 0, "used": 0}, "nocache": {"used": 647, "free": 7173}}, "ansible_user_dir": "/root", "gather_subset": ["all"], "ansible_real_user_id": 0, "ansible_virtualization_role": "guest", "ansible_dns": {"nameservers": ["168.63.129.16"], "search": ["djl55zokd5iepligvl0ovhkine.jnbx.internal.cloudapp.net"]}, "ansible_effective_group_id": 0, "ansible_lo": {"features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "rx_all": "off [fixed]", "highdma": "on [fixed]", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_gso_robust": "off [fixed]", "tx_ipip_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "on", "tx_checksumming": "on", "vlan_challenged": "on [fixed]", "loopback": "on [fixed]", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "on [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off [fixed]", "rx_gro_hw": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on [fixed]", "rx_checksumming": "on [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "busy_poll": "off [fixed]", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_nocache_copy": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "udp_fragmentation_offload": "on", "tx_sctp_segmentation": "on", "tx_sit_segmentation": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_fcoe_segmentation": "off [fixed]", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "off [fixed]", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "off [fixed]"}, "hw_timestamp_filters": [], "mtu": 65536, "device": "lo", "promisc": false, "timestamping": ["rx_software", "software"], "ipv4": {"broadcast": "", "netmask": "255.0.0.0", "network": "127.0.0.0", "address": "127.0.0.1"}, "ipv6": [{"scope": "host", "prefix": "128", "address": "::1"}], "active": true, "type": "loopback"}, "ansible_memtotal_mb": 7820, "ansible_device_links": {"masters": {}, "labels": {}, "ids": {"sda14": ["scsi-36002248003d2681637313139271fd482-part14", "wwn-0x6002248003d2681637313139271fd482-part14"], "sda15": ["scsi-36002248003d2681637313139271fd482-part15", "wwn-0x6002248003d2681637313139271fd482-part15"], "sdb1": ["scsi-3600224803fd81845e43bb15797aad1eb-part1", "wwn-0x600224803fd81845e43bb15797aad1eb-part1"], "sda2": ["scsi-36002248003d2681637313139271fd482-part2", "wwn-0x6002248003d2681637313139271fd482-part2"], "sda": ["scsi-36002248003d2681637313139271fd482", "wwn-0x6002248003d2681637313139271fd482"], "sdb": ["scsi-3600224803fd81845e43bb15797aad1eb", "wwn-0x600224803fd81845e43bb15797aad1eb"], "sda1": ["scsi-36002248003d2681637313139271fd482-part1", "wwn-0x6002248003d2681637313139271fd482-part1"]}, "uuids": {"sda15": ["C749-E0EB"], "sdb1": ["bce5d5e2-e999-4c16-ab5a-cd3ba573eac1"], "sda2": ["eab0f70c-f812-448a-be76-425cc5248ffd"], "sda1": ["e9bf12a5-f781-4b1a-93f3-933acebf14d2"]}}, "ansible_apparmor": {"status": "disabled"}, "ansible_proc_cmdline": {"console": ["tty1", "ttyS0,115200n8"], "earlyprintk": "ttyS0,115200", "net.ifnames": "0", "rootdelay": "300", "crashkernel": "auto", "BOOT_IMAGE": "/vmlinuz-3.10.0-1127.19.1.el7.x86_64", "scsi_mod.use_blk_mq": "y", "ro": true, "root": "UUID=eab0f70c-f812-448a-be76-425cc5248ffd"}, "ansible_memfree_mb": 4414, "ansible_processor_count": 1, "ansible_hostname": "ansible", "ansible_interfaces": ["lo", "eth1", "eth0"], "ansible_selinux": {"status": "enabled", "policyvers": 31, "type": "targeted", "mode": "enforcing", "config_mode": "enforcing"}, "ansible_fqdn": "ansible.internal.cloudapp.net", "ansible_mounts": [{"block_used": 21232, "uuid": "e9bf12a5-f781-4b1a-93f3-933acebf14d2", "size_total": 517713920, "block_total": 126395, "mount": "/boot", "block_available": 105163, "size_available": 430747648, "fstype": "xfs", "inode_total": 256000, "options": "rw,seclabel,relatime,attr2,inode64,noquota", "device": "/dev/sda1", "inode_used": 327, "block_size": 4096, "inode_available": 255673}, {"block_used": 435795, "uuid": "bce5d5e2-e999-4c16-ab5a-cd3ba573eac1", "size_total": 33684209664, "block_total": 8223684, "mount": "/mnt/resource", "block_available": 7787889, "size_available": 31899193344, "fstype": "ext4", "inode_total": 2097152, "options": "rw,seclabel,relatime,data=ordered", "device": "/dev/sdb1", "inode_used": 12, "block_size": 4096, "inode_available": 2097140}, {"block_used": 1439, "uuid": "C749-E0EB", "size_total": 518766592, "block_total": 63326, "mount": "/boot/efi", "block_available": 61887, "size_available": 506978304, "fstype": "vfat", "inode_total": 0, "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro", "device": "/dev/sda15", "inode_used": 0, "block_size": 8192, "inode_available": 0}, {"block_used": 769534, "uuid": "eab0f70c-f812-448a-be76-425cc5248ffd", "size_total": 31146369024, "block_total": 7604094, "mount": "/", "block_available": 6834560, "size_available": 27994357760, "fstype": "xfs", "inode_total": 15215616, "options": "rw,seclabel,relatime,attr2,inode64,noquota", "device": "/dev/sda2", "inode_used": 61421, "block_size": 4096, "inode_available": 15154195}], "ansible_nodename": "ansible", "ansible_lvm": {"pvs": {}, "lvs": {}, "vgs": {}}, "ansible_domain": "internal.cloudapp.net", "ansible_distribution_file_path": "/etc/redhat-release", "ansible_virtualization_type": "VirtualPC", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIKGfBHhsJlYznv8haDRZuCqcDS08+IMB56uPaWkNEwRv", "ansible_processor_cores": 2, "ansible_bios_version": "Hyper-V UEFI Release v4.1", "ansible_date_time": {"weekday_number": "0", "iso8601_basic_short": "20240428T224034", "tz": "UTC", "weeknumber": "17", "hour": "22", "year": "2024", "minute": "40", "tz_offset": "+0000", "month": "04", "epoch": "1714344034", "iso8601_micro": "2024-04-28T22:40:34.046381Z", "weekday": "Sunday", "time": "22:40:34", "date": "2024-04-28", "iso8601": "2024-04-28T22:40:34Z", "day": "28", "iso8601_basic": "20240428T224034046381", "second": "34"}, "ansible_distribution_release": "Core", "ansible_os_family": "RedHat", "ansible_effective_user_id": 0, "ansible_product_name": "Virtual Machine", "ansible_devices": {"sda": {"scheduler_mode": "mq-deadline", "rotational": "1", "vendor": "Msft", "sectors": "62914560", "links": {"masters": [], "labels": [], "ids": ["scsi-36002248003d2681637313139271fd482", "wwn-0x6002248003d2681637313139271fd482"], "uuids": []}, "partitions": {"sda14": {"sectorsize": 512, "uuid": null, "links": {"masters": [], "labels": [], "ids": ["scsi-36002248003d2681637313139271fd482-part14", "wwn-0x6002248003d2681637313139271fd482-part14"], "uuids": []}, "sectors": "8192", "start": "2048", "holders": [], "size": "4.00 MB"}, "sda15": {"sectorsize": 512, "uuid": "C749-E0EB", "links": {"masters": [], "labels": [], "ids": ["scsi-36002248003d2681637313139271fd482-part15", "wwn-0x6002248003d2681637313139271fd482-part15"], "uuids": ["C749-E0EB"]}, "sectors": "1013761", "start": "10240", "holders": [], "size": "495.00 MB"}, "sda2": {"sectorsize": 512, "uuid": "eab0f70c-f812-448a-be76-425cc5248ffd", "links": {"masters": [], "labels": [], "ids": ["scsi-36002248003d2681637313139271fd482-part2", "wwn-0x6002248003d2681637313139271fd482-part2"], "uuids": ["eab0f70c-f812-448a-be76-425cc5248ffd"]}, "sectors": "60862464", "start": "2050048", "holders": [], "size": "29.02 GB"}, "sda1": {"sectorsize": 512, "uuid": "e9bf12a5-f781-4b1a-93f3-933acebf14d2", "links": {"masters": [], "labels": [], "ids": ["scsi-36002248003d2681637313139271fd482-part1", "wwn-0x6002248003d2681637313139271fd482-part1"], "uuids": ["e9bf12a5-f781-4b1a-93f3-933acebf14d2"]}, "sectors": "1024000", "start": "1026048", "holders": [], "size": "500.00 MB"}}, "sas_device_handle": null, "sas_address": null, "virtual": 1, "host": "", "sectorsize": "512", "removable": "0", "support_discard": "2097152", "model": "Virtual Disk", "wwn": "0x6002248003d2681637313139271fd482", "holders": [], "size": "30.00 GB"}, "sdb": {"scheduler_mode": "mq-deadline", "rotational": "1", "vendor": "Msft", "sectors": "67108864", "links": {"masters": [], "labels": [], "ids": ["scsi-3600224803fd81845e43bb15797aad1eb", "wwn-0x600224803fd81845e43bb15797aad1eb"], "uuids": []}, "partitions": {"sdb1": {"sectorsize": 512, "uuid": "bce5d5e2-e999-4c16-ab5a-cd3ba573eac1", "links": {"masters": [], "labels": [], "ids": ["scsi-3600224803fd81845e43bb15797aad1eb-part1", "wwn-0x600224803fd81845e43bb15797aad1eb-part1"], "uuids": ["bce5d5e2-e999-4c16-ab5a-cd3ba573eac1"]}, "sectors": "67104768", "start": "2048", "holders": [], "size": "32.00 GB"}}, "sas_device_handle": null, "sas_address": null, "virtual": 1, "host": "", "sectorsize": "512", "removable": "0", "support_discard": "2097152", "model": "Virtual Disk", "wwn": "0x600224803fd81845e43bb15797aad1eb", "holders": [], "size": "32.00 GB"}}, "ansible_user_uid": 0, "ansible_bios_date": "11/28/2023", "ansible_system_capabilities": ["cap_chown", "cap_dac_override", "cap_dac_read_search", "cap_fowner", "cap_fsetid", "cap_kill", "cap_setgid", "cap_setuid", "cap_setpcap", "cap_linux_immutable", "cap_net_bind_service", "cap_net_broadcast", "cap_net_admin", "cap_net_raw", "cap_ipc_lock", "cap_ipc_owner", "cap_sys_module", "cap_sys_rawio", "cap_sys_chroot", "cap_sys_ptrace", "cap_sys_pacct", "cap_sys_admin", "cap_sys_boot", "cap_sys_nice", "cap_sys_resource", "cap_sys_time", "cap_sys_tty_config", "cap_mknod", "cap_lease", "cap_audit_write", "cap_audit_control", "cap_setfcap", "cap_mac_override", "cap_mac_admin", "cap_syslog", "35", "36+ep"]}}\r\n', 'Shared connection to 102.37.157.138 closed.\r\n')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1714344033.12-31723-105342271232140/ > /dev/null 2>&1 && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+ok: [102.37.157.138]
+META: ran handlers
+
+TASK [Update yum package cache] ****************************************************************************************************************************************************************************
+task path: /home/ansible/Webserversetup.yaml:6
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'echo ~ansible && sleep 0'"'"''
+<102.37.157.138> (0, '/home/ansible\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp `"&& mkdir "` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094 `" && echo ansible-tmp-1714344034.28-31905-22245327627094="` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094 `" ) && sleep 0'"'"''
+<102.37.157.138> (0, 'ansible-tmp-1714344034.28-31905-22245327627094=/home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+<102.37.157.138> PUT /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmpWyYCGp TO /home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094/AnsiballZ_yum.py
+<102.37.157.138> SSH: EXEC sshpass -d8 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d '[102.37.157.138]'
+<102.37.157.138> (0, 'sftp> put /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmpWyYCGp /home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094/AnsiballZ_yum.py\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094/ /home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094/AnsiballZ_yum.py && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d -tt 102.37.157.138 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-eqavvqbqykaiayfdvlugljznzdprpqsh ; /usr/bin/python /home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094/AnsiballZ_yum.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<102.37.157.138> (0, '\r\n{"msg": "Cache updated", "invocation": {"module_args": {"lock_timeout": 30, "update_cache": true, "disable_excludes": null, "exclude": [], "allow_downgrade": false, "disable_gpg_check": false, "conf_file": null, "use_backend": "auto", "state": null, "disablerepo": [], "releasever": null, "skip_broken": false, "autoremove": false, "download_dir": null, "enable_plugin": [], "installroot": "/", "install_weak_deps": true, "name": [], "download_only": false, "bugfix": false, "list": null, "install_repoquery": true, "update_only": false, "disable_plugin": [], "enablerepo": [], "security": false, "validate_certs": true}}, "changed": false, "results": [], "rc": 0}\r\n', 'Shared connection to 102.37.157.138 closed.\r\n')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1714344034.28-31905-22245327627094/ > /dev/null 2>&1 && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+ok: [102.37.157.138] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false,
+            "autoremove": false,
+            "bugfix": false,
+            "conf_file": null,
+            "disable_excludes": null,
+            "disable_gpg_check": false,
+            "disable_plugin": [],
+            "disablerepo": [],
+            "download_dir": null,
+            "download_only": false,
+            "enable_plugin": [],
+            "enablerepo": [],
+            "exclude": [],
+            "install_repoquery": true,
+            "install_weak_deps": true,
+            "installroot": "/",
+            "list": null,
+            "lock_timeout": 30,
+            "name": [],
+            "releasever": null,
+            "security": false,
+            "skip_broken": false,
+            "state": null,
+            "update_cache": true,
+            "update_only": false,
+            "use_backend": "auto",
+            "validate_certs": true
+        }
+    },
+    "msg": "Cache updated",
+    "rc": 0,
+    "results": []
+}
+
+TASK [Install Apache HTTP Server] **************************************************************************************************************************************************************************
+task path: /home/ansible/Webserversetup.yaml:9
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'echo ~ansible && sleep 0'"'"''
+<102.37.157.138> (0, '/home/ansible\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp `"&& mkdir "` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109 `" && echo ansible-tmp-1714344035.2-32009-215583942277109="` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109 `" ) && sleep 0'"'"''
+<102.37.157.138> (0, 'ansible-tmp-1714344035.2-32009-215583942277109=/home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+<102.37.157.138> PUT /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmpbX5XDl TO /home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109/AnsiballZ_yum.py
+<102.37.157.138> SSH: EXEC sshpass -d8 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d '[102.37.157.138]'
+<102.37.157.138> (0, 'sftp> put /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmpbX5XDl /home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109/AnsiballZ_yum.py\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109/ /home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109/AnsiballZ_yum.py && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d -tt 102.37.157.138 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-otjopfttdtynfvhnjqahvtolmdzkbedw ; /usr/bin/python /home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109/AnsiballZ_yum.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<102.37.157.138> (0, '\r\n{"msg": "", "invocation": {"module_args": {"lock_timeout": 30, "update_cache": false, "disable_excludes": null, "exclude": [], "allow_downgrade": false, "disable_gpg_check": false, "conf_file": null, "use_backend": "auto", "state": "present", "disablerepo": [], "releasever": null, "skip_broken": false, "autoremove": false, "download_dir": null, "enable_plugin": [], "installroot": "/", "install_weak_deps": true, "name": ["httpd"], "download_only": false, "bugfix": false, "list": null, "install_repoquery": true, "update_only": false, "disable_plugin": [], "enablerepo": [], "security": false, "validate_certs": true}}, "changed": false, "results": ["httpd-2.4.6-99.el7.centos.1.x86_64 providing httpd is already installed"], "rc": 0}\r\n', 'Shared connection to 102.37.157.138 closed.\r\n')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1714344035.2-32009-215583942277109/ > /dev/null 2>&1 && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+ok: [102.37.157.138] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false,
+            "autoremove": false,
+            "bugfix": false,
+            "conf_file": null,
+            "disable_excludes": null,
+            "disable_gpg_check": false,
+            "disable_plugin": [],
+            "disablerepo": [],
+            "download_dir": null,
+            "download_only": false,
+            "enable_plugin": [],
+            "enablerepo": [],
+            "exclude": [],
+            "install_repoquery": true,
+            "install_weak_deps": true,
+            "installroot": "/",
+            "list": null,
+            "lock_timeout": 30,
+            "name": [
+                "httpd"
+            ],
+            "releasever": null,
+            "security": false,
+            "skip_broken": false,
+            "state": "present",
+            "update_cache": false,
+            "update_only": false,
+            "use_backend": "auto",
+            "validate_certs": true
+        }
+    },
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "httpd-2.4.6-99.el7.centos.1.x86_64 providing httpd is already installed"
+    ]
+}
+
+TASK [Enable Apache service] *******************************************************************************************************************************************************************************
+task path: /home/ansible/Webserversetup.yaml:14
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'echo ~ansible && sleep 0'"'"''
+<102.37.157.138> (0, '/home/ansible\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp `"&& mkdir "` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305 `" && echo ansible-tmp-1714344035.73-32112-159213769213305="` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305 `" ) && sleep 0'"'"''
+<102.37.157.138> (0, 'ansible-tmp-1714344035.73-32112-159213769213305=/home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/system/systemd.py
+<102.37.157.138> PUT /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmp_bhegB TO /home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305/AnsiballZ_systemd.py
+<102.37.157.138> SSH: EXEC sshpass -d8 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d '[102.37.157.138]'
+<102.37.157.138> (0, 'sftp> put /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmp_bhegB /home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305/AnsiballZ_systemd.py\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305/ /home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305/AnsiballZ_systemd.py && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d -tt 102.37.157.138 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-glwlcavcxnlsynnjrcbhqyddsynxkihv ; /usr/bin/python /home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305/AnsiballZ_systemd.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<102.37.157.138> (0, '\r\n{"status": {"ExecStart": "{ path=/usr/sbin/httpd ; argv[]=/usr/sbin/httpd $OPTIONS -DFOREGROUND ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "TimeoutStopUSec": "1min 30s", "ControlGroup": "/system.slice/httpd.service", "RuntimeDirectoryMode": "0755", "GuessMainPID": "yes", "ExecMainCode": "0", "UnitFileState": "enabled", "ExecMainPID": "24211", "LimitSIGPENDING": "31099", "FileDescriptorStoreMax": "0", "LoadState": "loaded", "ProtectHome": "no", "TTYVTDisallocate": "no", "StartLimitInterval": "10000000", "WatchdogTimestampMonotonic": "76435004969", "LimitSTACK": "18446744073709551615", "ActiveEnterTimestampMonotonic": "76435005142", "StandardError": "inherit", "AssertTimestamp": "Sun 2024-04-28 22:19:34 UTC", "IgnoreOnSnapshot": "no", "StartLimitAction": "none", "EnvironmentFile": "/etc/sysconfig/httpd (ignore_errors=no)", "CPUSchedulingPriority": "0", "KillSignal": "18", "LimitFSIZE": "18446744073709551615", "IgnoreOnIsolate": "no", "LimitCPU": "18446744073709551615", "InactiveExitTimestamp": "Sun 2024-04-28 22:19:34 UTC", "WatchdogTimestamp": "Sun 2024-04-28 22:19:34 UTC", "NoNewPrivileges": "no", "MemoryLimit": "18446744073709551615", "CanStart": "yes", "JobTimeoutAction": "none", "Before": "shutdown.target multi-user.target", "LimitAS": "18446744073709551615", "RootDirectoryStartOnly": "no", "InactiveExitTimestampMonotonic": "76434950683", "SendSIGHUP": "no", "TimeoutStartUSec": "1min 30s", "Type": "notify", "SyslogPriority": "30", "SameProcessGroup": "no", "LimitNPROC": "31099", "UMask": "0022", "NonBlocking": "no", "DevicePolicy": "auto", "ExecMainStartTimestamp": "Sun 2024-04-28 22:19:34 UTC", "CapabilityBoundingSet": "18446744073709551615", "TTYReset": "no", "OOMScoreAdjust": "0", "Documentation": "man:httpd(8) man:apachectl(8)", "StartLimitBurst": "5", "RefuseManualStart": "no", "KillMode": "control-group", "SyslogLevelPrefix": "yes", "LimitRSS": "18446744073709551615", "LimitRTPRIO": "0", "Delegate": "no", "ExecReload": "{ path=/usr/sbin/httpd ; argv[]=/usr/sbin/httpd $OPTIONS -k graceful ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStop": "{ path=/bin/kill ; argv[]=/bin/kill -WINCH ${MAINPID} ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "SecureBits": "0", "LimitCORE": "18446744073709551615", "JobTimeoutUSec": "0", "TimerSlackNSec": "50000", "SubState": "running", "CPUSchedulingResetOnFork": "no", "Result": "success", "CPUShares": "18446744073709551615", "ConditionResult": "yes", "ConditionTimestampMonotonic": "76434949215", "MainPID": "24211", "StartupBlockIOWeight": "18446744073709551615", "ActiveEnterTimestamp": "Sun 2024-04-28 22:19:34 UTC", "FragmentPath": "/usr/lib/systemd/system/httpd.service", "StartupCPUShares": "18446744073709551615", "WatchdogUSec": "0", "ActiveState": "active", "Nice": "0", "LimitDATA": "18446744073709551615", "UnitFilePreset": "disabled", "MemoryCurrent": "18446744073709551615", "LimitRTTIME": "18446744073709551615", "WantedBy": "multi-user.target", "TasksCurrent": "18446744073709551615", "RestartUSec": "100ms", "ConditionTimestamp": "Sun 2024-04-28 22:19:34 UTC", "CPUAccounting": "no", "RemainAfterExit": "no", "RequiresMountsFor": "/var/tmp", "PrivateNetwork": "no", "Restart": "no", "CPUSchedulingPolicy": "0", "LimitNOFILE": "4096", "SendSIGKILL": "yes", "StatusErrno": "0", "RefuseManualStop": "no", "SystemCallErrorNumber": "0", "TasksAccounting": "no", "NeedDaemonReload": "no", "TTYVHangup": "no", "StandardInput": "null", "AssertTimestampMonotonic": "76434949216", "DefaultDependencies": "yes", "Requires": "basic.target system.slice -.mount", "TasksMax": "18446744073709551615", "CPUQuotaPerSecUSec": "infinity", "ExecMainStatus": "0", "LimitMEMLOCK": "65536", "StopWhenUnneeded": "no", "LimitMSGQUEUE": "819200", "AmbientCapabilities": "0", "Slice": "system.slice", "ExecMainExitTimestampMonotonic": "0", "CollectMode": "inactive", "NotifyAccess": "main", "PermissionsStartOnly": "no", "BlockIOAccounting": "no", "CanStop": "yes", "PrivateTmp": "yes", "OnFailureJobMode": "replace", "AssertResult": "yes", "LimitLOCKS": "18446744073709551615", "ExecMainStartTimestampMonotonic": "76434950648", "AllowIsolate": "no", "LimitNICE": "0", "After": "systemd-journald.socket remote-fs.target system.slice basic.target -.mount network.target tmp.mount nss-lookup.target", "FailureAction": "none", "CanIsolate": "no", "Conflicts": "shutdown.target", "StandardOutput": "journal", "MountFlags": "0", "InactiveEnterTimestampMonotonic": "0", "StatusText": "Total requests: 16; Current requests/sec: 0; Current traffic:   0 B/sec", "MemoryAccounting": "no", "IgnoreSIGPIPE": "yes", "Transient": "no", "IOScheduling": "0", "Description": "The Apache HTTP Server", "ActiveExitTimestampMonotonic": "0", "CanReload": "yes", "ControlPID": "0", "BlockIOWeight": "18446744073709551615", "Names": "httpd.service", "ProtectSystem": "no", "PrivateDevices": "no", "Id": "httpd.service"}, "name": "httpd", "changed": false, "enabled": true, "state": "started", "invocation": {"module_args": {"no_block": false, "force": null, "name": "httpd", "daemon_reexec": false, "enabled": true, "daemon_reload": false, "state": "started", "masked": null, "scope": null, "user": null}}}\r\n', 'Shared connection to 102.37.157.138 closed.\r\n')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1714344035.73-32112-159213769213305/ > /dev/null 2>&1 && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+ok: [102.37.157.138] => {
+    "changed": false,
+    "enabled": true,
+    "invocation": {
+        "module_args": {
+            "daemon_reexec": false,
+            "daemon_reload": false,
+            "enabled": true,
+            "force": null,
+            "masked": null,
+            "name": "httpd",
+            "no_block": false,
+            "scope": null,
+            "state": "started",
+            "user": null
+        }
+    },
+    "name": "httpd",
+    "state": "started",
+    "status": {
+        "ActiveEnterTimestamp": "Sun 2024-04-28 22:19:34 UTC",
+        "ActiveEnterTimestampMonotonic": "76435005142",
+        "ActiveExitTimestampMonotonic": "0",
+        "ActiveState": "active",
+        "After": "systemd-journald.socket remote-fs.target system.slice basic.target -.mount network.target tmp.mount nss-lookup.target",
+        "AllowIsolate": "no",
+        "AmbientCapabilities": "0",
+        "AssertResult": "yes",
+        "AssertTimestamp": "Sun 2024-04-28 22:19:34 UTC",
+        "AssertTimestampMonotonic": "76434949216",
+        "Before": "shutdown.target multi-user.target",
+        "BlockIOAccounting": "no",
+        "BlockIOWeight": "18446744073709551615",
+        "CPUAccounting": "no",
+        "CPUQuotaPerSecUSec": "infinity",
+        "CPUSchedulingPolicy": "0",
+        "CPUSchedulingPriority": "0",
+        "CPUSchedulingResetOnFork": "no",
+        "CPUShares": "18446744073709551615",
+        "CanIsolate": "no",
+        "CanReload": "yes",
+        "CanStart": "yes",
+        "CanStop": "yes",
+        "CapabilityBoundingSet": "18446744073709551615",
+        "CollectMode": "inactive",
+        "ConditionResult": "yes",
+        "ConditionTimestamp": "Sun 2024-04-28 22:19:34 UTC",
+        "ConditionTimestampMonotonic": "76434949215",
+        "Conflicts": "shutdown.target",
+        "ControlGroup": "/system.slice/httpd.service",
+        "ControlPID": "0",
+        "DefaultDependencies": "yes",
+        "Delegate": "no",
+        "Description": "The Apache HTTP Server",
+        "DevicePolicy": "auto",
+        "Documentation": "man:httpd(8) man:apachectl(8)",
+        "EnvironmentFile": "/etc/sysconfig/httpd (ignore_errors=no)",
+        "ExecMainCode": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "24211",
+        "ExecMainStartTimestamp": "Sun 2024-04-28 22:19:34 UTC",
+        "ExecMainStartTimestampMonotonic": "76434950648",
+        "ExecMainStatus": "0",
+        "ExecReload": "{ path=/usr/sbin/httpd ; argv[]=/usr/sbin/httpd $OPTIONS -k graceful ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStart": "{ path=/usr/sbin/httpd ; argv[]=/usr/sbin/httpd $OPTIONS -DFOREGROUND ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStop": "{ path=/bin/kill ; argv[]=/bin/kill -WINCH ${MAINPID} ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "FailureAction": "none",
+        "FileDescriptorStoreMax": "0",
+        "FragmentPath": "/usr/lib/systemd/system/httpd.service",
+        "GuessMainPID": "yes",
+        "IOScheduling": "0",
+        "Id": "httpd.service",
+        "IgnoreOnIsolate": "no",
+        "IgnoreOnSnapshot": "no",
+        "IgnoreSIGPIPE": "yes",
+        "InactiveEnterTimestampMonotonic": "0",
+        "InactiveExitTimestamp": "Sun 2024-04-28 22:19:34 UTC",
+        "InactiveExitTimestampMonotonic": "76434950683",
+        "JobTimeoutAction": "none",
+        "JobTimeoutUSec": "0",
+        "KillMode": "control-group",
+        "KillSignal": "18",
+        "LimitAS": "18446744073709551615",
+        "LimitCORE": "18446744073709551615",
+        "LimitCPU": "18446744073709551615",
+        "LimitDATA": "18446744073709551615",
+        "LimitFSIZE": "18446744073709551615",
+        "LimitLOCKS": "18446744073709551615",
+        "LimitMEMLOCK": "65536",
+        "LimitMSGQUEUE": "819200",
+        "LimitNICE": "0",
+        "LimitNOFILE": "4096",
+        "LimitNPROC": "31099",
+        "LimitRSS": "18446744073709551615",
+        "LimitRTPRIO": "0",
+        "LimitRTTIME": "18446744073709551615",
+        "LimitSIGPENDING": "31099",
+        "LimitSTACK": "18446744073709551615",
+        "LoadState": "loaded",
+        "MainPID": "24211",
+        "MemoryAccounting": "no",
+        "MemoryCurrent": "18446744073709551615",
+        "MemoryLimit": "18446744073709551615",
+        "MountFlags": "0",
+        "Names": "httpd.service",
+        "NeedDaemonReload": "no",
+        "Nice": "0",
+        "NoNewPrivileges": "no",
+        "NonBlocking": "no",
+        "NotifyAccess": "main",
+        "OOMScoreAdjust": "0",
+        "OnFailureJobMode": "replace",
+        "PermissionsStartOnly": "no",
+        "PrivateDevices": "no",
+        "PrivateNetwork": "no",
+        "PrivateTmp": "yes",
+        "ProtectHome": "no",
+        "ProtectSystem": "no",
+        "RefuseManualStart": "no",
+        "RefuseManualStop": "no",
+        "RemainAfterExit": "no",
+        "Requires": "basic.target system.slice -.mount",
+        "RequiresMountsFor": "/var/tmp",
+        "Restart": "no",
+        "RestartUSec": "100ms",
+        "Result": "success",
+        "RootDirectoryStartOnly": "no",
+        "RuntimeDirectoryMode": "0755",
+        "SameProcessGroup": "no",
+        "SecureBits": "0",
+        "SendSIGHUP": "no",
+        "SendSIGKILL": "yes",
+        "Slice": "system.slice",
+        "StandardError": "inherit",
+        "StandardInput": "null",
+        "StandardOutput": "journal",
+        "StartLimitAction": "none",
+        "StartLimitBurst": "5",
+        "StartLimitInterval": "10000000",
+        "StartupBlockIOWeight": "18446744073709551615",
+        "StartupCPUShares": "18446744073709551615",
+        "StatusErrno": "0",
+        "StatusText": "Total requests: 16; Current requests/sec: 0; Current traffic:   0 B/sec",
+        "StopWhenUnneeded": "no",
+        "SubState": "running",
+        "SyslogLevelPrefix": "yes",
+        "SyslogPriority": "30",
+        "SystemCallErrorNumber": "0",
+        "TTYReset": "no",
+        "TTYVHangup": "no",
+        "TTYVTDisallocate": "no",
+        "TasksAccounting": "no",
+        "TasksCurrent": "18446744073709551615",
+        "TasksMax": "18446744073709551615",
+        "TimeoutStartUSec": "1min 30s",
+        "TimeoutStopUSec": "1min 30s",
+        "TimerSlackNSec": "50000",
+        "Transient": "no",
+        "Type": "notify",
+        "UMask": "0022",
+        "UnitFilePreset": "disabled",
+        "UnitFileState": "enabled",
+        "WantedBy": "multi-user.target",
+        "WatchdogTimestamp": "Sun 2024-04-28 22:19:34 UTC",
+        "WatchdogTimestampMonotonic": "76435004969",
+        "WatchdogUSec": "0"
+    }
+}
+
+TASK [Allow HTTP traffic through UFW] **********************************************************************************************************************************************************************
+task path: /home/ansible/Webserversetup.yaml:20
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'echo ~ansible && sleep 0'"'"''
+<102.37.157.138> (0, '/home/ansible\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp `"&& mkdir "` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902 `" && echo ansible-tmp-1714344036.39-32219-130259222297902="` echo /home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902 `" ) && sleep 0'"'"''
+<102.37.157.138> (0, 'ansible-tmp-1714344036.39-32219-130259222297902=/home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/system/ufw.py
+<102.37.157.138> PUT /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmpCyFcXx TO /home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902/AnsiballZ_ufw.py
+<102.37.157.138> SSH: EXEC sshpass -d8 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d '[102.37.157.138]'
+<102.37.157.138> (0, 'sftp> put /home/ansible/.ansible/tmp/ansible-local-31714_07gcL/tmpCyFcXx /home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902/AnsiballZ_ufw.py\n', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902/ /home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902/AnsiballZ_ufw.py && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d -tt 102.37.157.138 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-vvmhhkdnojkyuncfbutdvyaslyyyxjnc ; /usr/bin/python /home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902/AnsiballZ_ufw.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<102.37.157.138> (0, '\r\n{"msg": "Status: active\\nLogging: on (low)\\nDefault: deny (incoming), allow (outgoing), disabled (routed)\\nNew profiles: skip\\n\\nTo                         Action      From\\n--                         ------      ----\\n22/tcp (SSH)               ALLOW IN    Anywhere                  \\n224.0.0.251 5353/udp (mDNS) ALLOW IN    Anywhere                  \\n80,443/tcp                 ALLOW IN    Anywhere                  \\n22/tcp (SSH (v6))          ALLOW IN    Anywhere (v6)             \\nff02::fb 5353/udp (mDNS)   ALLOW IN    Anywhere (v6)             \\n80,443/tcp (v6)            ALLOW IN    Anywhere (v6)", "invocation": {"module_args": {"comment": null, "insert": null, "direction": null, "from_port": null, "to_ip": "any", "name": null, "proto": "tcp", "to_port": "80,443", "route": false, "from_ip": "any", "rule": "allow", "insert_relative_to": "zero", "default": null, "state": null, "interface": null, "logging": null, "delete": false, "port": "80,443", "log": false}}, "commands": ["/sbin/ufw status verbose", "/bin/grep -h \'^### tuple\' /lib/ufw/user.rules /lib/ufw/user6.rules /etc/ufw/user.rules /etc/ufw/user6.rules /var/lib/ufw/user.rules /var/lib/ufw/user6.rules", "/sbin/ufw --version", "/sbin/ufw allow from any to any port 80,443 proto tcp", "/sbin/ufw status verbose", "/bin/grep -h \'^### tuple\' /lib/ufw/user.rules /lib/ufw/user6.rules /etc/ufw/user.rules /etc/ufw/user6.rules /var/lib/ufw/user.rules /var/lib/ufw/user6.rules"], "changed": false}\r\n', 'Shared connection to 102.37.157.138 closed.\r\n')
+<102.37.157.138> ESTABLISH SSH CONNECTION FOR USER: ansible
+<102.37.157.138> SSH: EXEC sshpass -d8 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="ansible"' -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/edcc49ae8d 102.37.157.138 '/bin/sh -c '"'"'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1714344036.39-32219-130259222297902/ > /dev/null 2>&1 && sleep 0'"'"''
+<102.37.157.138> (0, '', '')
+ok: [102.37.157.138] => {
+    "changed": false,
+    "commands": [
+        "/sbin/ufw status verbose",
+        "/bin/grep -h '^### tuple' /lib/ufw/user.rules /lib/ufw/user6.rules /etc/ufw/user.rules /etc/ufw/user6.rules /var/lib/ufw/user.rules /var/lib/ufw/user6.rules",
+        "/sbin/ufw --version",
+        "/sbin/ufw allow from any to any port 80,443 proto tcp",
+        "/sbin/ufw status verbose",
+        "/bin/grep -h '^### tuple' /lib/ufw/user.rules /lib/ufw/user6.rules /etc/ufw/user.rules /etc/ufw/user6.rules /var/lib/ufw/user.rules /var/lib/ufw/user6.rules"
+    ],
+    "invocation": {
+        "module_args": {
+            "comment": null,
+            "default": null,
+            "delete": false,
+            "direction": null,
+            "from_ip": "any",
+            "from_port": null,
+            "insert": null,
+            "insert_relative_to": "zero",
+            "interface": null,
+            "log": false,
+            "logging": null,
+            "name": null,
+            "port": "80,443",
+            "proto": "tcp",
+            "route": false,
+            "rule": "allow",
+            "state": null,
+            "to_ip": "any",
+            "to_port": "80,443"
+        }
+    },
+    "msg": "Status: active\nLogging: on (low)\nDefault: deny (incoming), allow (outgoing), disabled (routed)\nNew profiles: skip\n\nTo                         Action      From\n--                         ------      ----\n22/tcp (SSH)               ALLOW IN    Anywhere                  \n224.0.0.251 5353/udp (mDNS) ALLOW IN    Anywhere                  \n80,443/tcp                 ALLOW IN    Anywhere                  \n22/tcp (SSH (v6))          ALLOW IN    Anywhere (v6)             \nff02::fb 5353/udp (mDNS)   ALLOW IN    Anywhere (v6)             \n80,443/tcp (v6)            ALLOW IN    Anywhere (v6)"
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP *************************************************************************************************************************************************************************************************
+102.37.157.138   
